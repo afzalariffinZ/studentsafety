@@ -5,6 +5,32 @@ import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { BrandColors } from '@/constants/Colors';
+
+// Custom theme with brand colors
+const CustomLightTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: BrandColors.blue,
+    background: BrandColors.white,
+    card: BrandColors.white,
+    text: '#11181C',
+    border: BrandColors.lightGray,
+  },
+};
+
+const CustomDarkTheme = {
+  ...DarkTheme,
+  colors: {
+    ...DarkTheme.colors,
+    primary: BrandColors.lightBlue,
+    background: '#151718',
+    card: '#1f2937',
+    text: '#ECEDEE',
+    border: '#374151',
+  },
+};
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -18,7 +44,7 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <ThemeProvider value={colorScheme === 'dark' ? CustomDarkTheme : CustomLightTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
