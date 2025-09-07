@@ -47,6 +47,9 @@ export default function RootLayout() {
     <ThemeProvider value={colorScheme === 'dark' ? CustomDarkTheme : CustomLightTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="report-history" options={{ headerShown: false }} />
+        <Stack.Screen name="report-incident" options={{ headerShown: false }} />
+        <Stack.Screen name="report-detail" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />
